@@ -50,12 +50,12 @@ export default function Brand() {
     }, [BrandStateData.length,data.length])
     return (
         <>
-            <div className="container-fluid" style={{ marginLeft: "80px", transition: "0.3s" }}>
+        <div className='d-flex'>
+                       <Sidebar/>
+            <div className="container-fluid" style={{ marginLeft: "80px"}}>
 
-                <div className="row">
-                    <div className="col-md-1">
-                        <Sidebar />
-                    </div>
+                <div className="row gap-4">
+                    
                     <div className="col-md-12 ml-12">
                         <h5 className='bg-primary text-light p-2 text-center'>Brand <Link to="/admin/brand/create"><i className='fa fa-plus text-light float-end'></i></Link></h5>
                         <div className="table-responsive">
@@ -67,31 +67,11 @@ export default function Brand() {
                                 load
 
                             />
-                            {/* <table className='table table-bordered'>
-                                <thead>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Name</th>
-                                        <th></th>
-                                        <th></th>   
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {
-                                       data.map((item, index) => {
-                                            return <tr key={index}>
-                                                <td>{item._id}</td>
-                                                <td>{item.name}</td>
-                                                <td><Link to={`/admin/brand/update/${item._id}`}><i className='fa fa-edit text-success'></i></Link></td>
-                                                <td><button className='btn' onClick={()=>deleteItem(item._id)}><i className='fa fa-trash text-danger'></i></button></td>
-                                            </tr>
-                                        })
-                                    }
-                                </tbody>
-                            </table> */}
+                           
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </>
     )

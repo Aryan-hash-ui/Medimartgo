@@ -45,7 +45,7 @@ export default function Navbar() {
       {/* <!-- Topbar End --> */}
 
       {/* Navbar Start */}
-      <nav className="navbar navbar-expand-lg bg-primary text-light navbar-dark shadow-sm px-3 px-lg-0">
+      <nav className="navbar navbar-expand-lg bg-primary text-light navbar-dark shadow-sm px-3 px-lg-0" style={{ zIndex: 1050 }}>
         <Link to="/" className="navbar-brand d-block d-lg-none">
           <h1 className="m-0 text-uppercase text-white">
             <i className="fa fa-plus fs-1  me-3" />

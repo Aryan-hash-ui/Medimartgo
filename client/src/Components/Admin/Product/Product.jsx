@@ -163,14 +163,14 @@ export default function Product() {
 
     return (
         <>
-            <div className="container-fluid" style={{ marginLeft: "80px", transition: "0.3s" }}>
+        <div className='d-flex'>
+                       <Sidebar/>
+            <div className="container-fluid" style={{ marginLeft: "80px"}}>
 
-                <div className="row">
+                <div className="row gap-4">
                    
-                    <div className="col-md-12 w-75">
-                         <div >
-                        <Sidebar />
-                    </div>
+                    <div className="col-md-12">
+                    
                         <h5 className='bg-primary text-light p-2 text-center'>
                             Product
                             <Link to="/admin/product/create">
@@ -192,6 +192,7 @@ export default function Product() {
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </>
     );

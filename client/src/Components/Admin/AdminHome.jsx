@@ -26,19 +26,16 @@ export default function AdminHome() {
         getAPIData()
     }, [])
 
-    return (
-        <>
-           
+   return (
+    <>
+        <div className="d-flex">
 
-            <div className="container-fluid" style={{ marginLeft: "80px", transition: "0.3s" }}>
+            {/* Sidebar */}
+            <Sidebar />
 
-                
-                {/* <h4 className="my-3 p-3 bg-primary text-light rounded text-center">
-                    Admin Dashboard
-                </h4> */}
-
+            {/* Content Area */}
+            <div className="flex-grow-1 p-4" style={{ marginLeft: "80px" }}>
                 <div className="row g-4">
-                     <Sidebar className="mt-5" />
 
                     <div className="col-md-4">
                         {
@@ -60,8 +57,10 @@ export default function AdminHome() {
                                 <p><strong>Email:</strong> {user.email}</p>
                                 <p><strong>Phone:</strong> {user.phone}</p>
 
-                                <Link to="/updateprofile"
-                                    className="btn btn-primary w-100 mt-3">
+                                <Link
+                                    to="/updateprofile"
+                                    className="btn btn-primary w-100 mt-3"
+                                >
                                     <i className="fa fa-edit"></i> Edit Profile
                                 </Link>
 
@@ -71,6 +70,9 @@ export default function AdminHome() {
 
                 </div>
             </div>
-        </>
-    )
+
+        </div>
+    </>
+);
+
 }
