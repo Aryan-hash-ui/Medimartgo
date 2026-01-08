@@ -100,24 +100,6 @@ export default function CreateProduct() {
     item.append("pic4", data.pic4)
     dispatch(addProduct(item))
     navigate("/admin/product")
-    
-    //Use Below method in case of dummy json server
-      // name: data.name,
-      // maincategory: data.maincategory || maincategory[0].name,
-      // subcategory: data.subcategory || subcategory[0].name,
-      // brand: data.brand || brand[0].name,
-      // stock: data.stock,
-      // color: data.color,
-      // size: data.size,
-      // baseprice: parseInt(data.baseprice),
-      // discount: parseInt(data.discount),
-      // finalprice: fp,
-      // description: data.description,
-      // pic1: data.pic1,
-      // pic2: data.pic2,
-      // pic3: data.pic3,
-      // pic4: data.pic4
-
     }
     else
           setShow(true)

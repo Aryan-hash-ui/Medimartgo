@@ -92,6 +92,24 @@ const baseStyle = {
               {expanded && <span>Products</span>}
             </Link>
           </li>
+           <li className="py-3">
+            <Link className="text-white d-flex align-items-center gap-3 text-decoration-none" to="/admin/contactus">
+              <i className="fa fa-box fs-4"></i>
+              {expanded && <span>Contact Us</span>}
+            </Link>
+          </li>
+          <li className="py-3">
+            <Link className="text-white d-flex align-items-center gap-3 text-decoration-none" to="/admin/testimonial">
+              <i className="fa fa-box fs-4"></i>
+              {expanded && <span>Testimonial</span>}
+            </Link>
+          </li>
+           <li className="py-3">
+            <Link className="text-white d-flex align-items-center gap-3 text-decoration-none" to="/admin/checkout">
+              <i className="fa fa-box fs-4"></i>
+              {expanded && <span> All Orders</span>}
+            </Link>
+          </li>
 
         </ul>
       </div>

@@ -46,13 +46,13 @@ export default function ShowContact() {
                     <div className="col-md-3">
                         <Sidebar />
                     </div>
-                    <div className="col-md-9">
+                    <div className="col-md-11">
                         <h5 className='bg-primary text-light p-2 text-center'>ContactUs Query</h5>
                         <table className='table table-bordered table-striped table-hover'>
                             <tbody>
                                 <tr>
                                     <th>ID</th>
-                                    <td>{data.id}</td>
+                                    <td>{data._id}</td>
                                 </tr>
                                 <tr>
                                     <th>Name</th>

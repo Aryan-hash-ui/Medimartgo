@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import CountUp from "react-countup";
 
 export default function About() {
   return (
@@ -39,14 +40,10 @@ export default function About() {
         </div>
         <div className="col-lg-6 pb-5">
           <h4 className="mb-4">
-            Tempor erat elitr rebum clita. Diam dolor diam ipsum erat lorem sed
-            stet labore lorem sit clita duo
+            MedimartGo – Your medicines, delivered with care.
           </h4>
           <p className="mb-5">
-            Tempor erat elitr at rebum at at clita. Diam dolor diam ipsum et
-            tempor sit. Clita erat ipsum et lorem et sit, sed stet no labore
-            lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore
-            erat amet magna
+           MedimartGo is an online medicine shopping app designed to make healthcare accessible, affordable, and convenient. We provide genuine medicines, easy ordering, and fast doorstep delivery.
           </p>
           <div className="row g-5">
             <div className="col-sm-6">

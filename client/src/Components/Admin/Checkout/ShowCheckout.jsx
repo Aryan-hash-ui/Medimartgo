@@ -35,6 +35,7 @@ export default function ShowCheckout() {
         if (CheckoutStateData.length) {
             let item = CheckoutStateData.slice(1).find((x) => x._id === _id)
             setData(item)
+            
             let response = await fetch("/api/user/" + item.userid, {
                 method: "get",
                 headers: {

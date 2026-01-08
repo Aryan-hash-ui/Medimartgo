@@ -29,10 +29,10 @@ export default function ContactUs() {
         <>
             <div className="container-fluid my-3">
                 <div className="row">
-                    <div className="col-md-3">
+                    <div className="col-md-2">
                         <Sidebar />
                     </div>
-                    <div className="col-md-9">
+                    <div className="col-md-10">
                         <h5 className='bg-primary text-light p-2 text-center'>ContactUs</h5>
                         <div className="table-responsive">
                             <table className='table table-bordered'>

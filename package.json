@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "react-countup": "^4.3.3",
     "react-data-table-component": "^7.6.2",
     "usestate": "^1.1.3"
   }

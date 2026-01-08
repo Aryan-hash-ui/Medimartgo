@@ -8,11 +8,11 @@ import DataTable from 'react-data-table-component';
 import { getCheckout } from "../../../Store/ActionCreators/CheckoutActionCreators"
 export default function AdminCheckout() {
     const columns = [
-        {
-            name: 'Id',
-            selector: row => row._id,
-            sortable: true,
-        },
+         {
+    name: 'S.No',
+    selector: (row, index) => index + 1,
+   
+  },
         {
             name: 'Order Status',
             selector: row => row.orderstatus,
@@ -53,11 +53,14 @@ export default function AdminCheckout() {
             selector: row => row.rppid,
             sortable: true,
         },
-        {
-            name: 'Show',
-            sortable: false,
-            selector: row => <Link to={`/admin/checkout/show/${row._id}`}><i className='fa fa-eye text-success'></i></Link>
-        }
+       {
+        name: 'Show',
+        cell: row => (
+            <Link to={`/admin/checkout/show/${row._id}`}>
+                <i className='fa fa-eye text-success'></i>
+            </Link>
+        )
+    }
     ]
     let [data, setData] = useState([])
     let dispatch = useDispatch()
@@ -69,54 +72,33 @@ export default function AdminCheckout() {
         }
     }
     useEffect(() => {
-        getAPIData()
-    }, [CheckoutStateData.length])
+    dispatch(getCheckout())
+}, [dispatch])
+
+useEffect(() => {
+    if (CheckoutStateData.length) {
+        setData(CheckoutStateData)
+    }
+}, [CheckoutStateData])
+
     return (
         <>
             <div className="container-fluid my-3">
                 <div className="row">
-                    <div className="col-md-3">
+                    <div className="col-md-1">
                         <Sidebar />
                     </div>
-                    <div className="col-md-9">
-                        <h5 className='bg-primary text-light p-2 text-center'>Checkout</h5>
+                    <div className="col-md-11">
+                        <h5 className='bg-primary text-light p-2 text-center'>All Orders</h5>
                         <div className="table-responsive">
-                            {/* <table className='table table-bordered'>
-                                <thead>
-                                    <tr>
-                                        <th>Order Status</th>
-                                        <th>Payment Mode</th>
-                                        <th>Payment Status</th>
-                                        <th>Subtotal</th>
-                                        <th>Shipping</th>
-                                        <th>Total</th>
-                                        <th>Date</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {
-                                        data.map((item, index) => {
-                                            return <tr key={index}>
-                                                <td>{item.orderstatus}</td>
-                                                <td>{item.paymentmode}</td>
-                                                <td>{item.paymentstatus}</td>
-                                                <td>&#8377;{item.subtotal}</td>
-                                                <td>&#8377;{item.shipping}</td>
-                                                <td>&#8377;{item.total}</td>
-                                                <td>{new Date(item.date).toLocaleDateString()}</td>
-                                                <td><Link to={`/admin/checkout/show/${item._id}`}><i className='fa fa-eye text-success'></i></Link></td>
-                                            </tr>
-                                        })
-                                    }
-                                </tbody>
-                            </table> */}
+                           
                              <DataTable
                                 className='table'
                                 columns={columns}
                                 data={data}
                                 pagination = {true}
                                 load
+                                 keyField="_id"
                             />
                         </div>
                     </div>

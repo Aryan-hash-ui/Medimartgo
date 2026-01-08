@@ -7,10 +7,15 @@ import { deleteMaincategory, getMaincategory } from "../../../Store/ActionCreato
 import DataTable from 'react-data-table-component';
 export default function Maincategory() {
     const columns = [
+        // {
+        //     name: 'Id',
+        //     selector: row => row._id,
+        //     sortable: true,
+        // },
         {
-            name: 'Id',
-            selector: row => row._id,
-            sortable: true,
+            name: 'S.No',
+            selector: (row, index) => index + 1,
+
         },
         {
             name: 'Name',
@@ -57,7 +62,7 @@ export default function Maincategory() {
                 <div className="row gap-4">
                 
                     <div className="col-md-12">
-                        <h5 className='bg-primary text-light p-2 text-center'>Maincategory <Link to="/admin/maincategory/create"><i className='fa fa-plus text-light float-end'></i></Link></h5>
+                        <h5 className='bg-primary text-light p-2 m-2 text-center'>Maincategory <Link to="/admin/maincategory/create"><i className='fa fa-plus text-light float-end'></i></Link></h5>
                         <div className="table-responsive">
                             <DataTable
                                 className='table'

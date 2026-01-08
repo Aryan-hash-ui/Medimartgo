@@ -34,14 +34,14 @@ export default function AdminHome() {
             <Sidebar />
 
             {/* Content Area */}
-            <div className="flex-grow-1 p-4" style={{ marginLeft: "80px" }}>
-                <div className="row g-4">
+            <div className="flex-grow-1 p-4" style={{ marginLeft: "80px", }}>
+                <div className="row g-4"   >
 
-                    <div className="col-md-4">
+                    <div className="col-md-4"  >
                         {
                             user.pic ?
                                 <img src={user.pic} className="img-fluid rounded shadow" alt="" /> :
-                                <img src="/img/nouser.jpg" className="img-fluid rounded shadow" alt="" />
+                                <img src="/img/nouser.jpg" className="img-fluid rounded shadow"  alt="" />
                         }
                     </div>
 

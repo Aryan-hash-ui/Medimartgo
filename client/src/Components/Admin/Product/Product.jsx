@@ -169,9 +169,9 @@ export default function Product() {
 
                 <div className="row gap-4">
                    
-                    <div className="col-md-12">
+                    <div className="col-md-11">
                     
-                        <h5 className='bg-primary text-light p-2 text-center'>
+                        <h5 className='bg-primary text-light p-2 m-2 text-center'>
                             Product
                             <Link to="/admin/product/create">
                                 <i className='fa fa-plus text-light float-end'></i>

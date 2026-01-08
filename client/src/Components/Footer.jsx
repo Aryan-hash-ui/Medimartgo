@@ -15,16 +15,13 @@ export default function Footer() {
           <div className="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-success border-inner p-4">
             <a href="index.html" className="navbar-brand">
               <h1 className="m-0 text-uppercase text-white">
-                <i className="fa fa-plus fs-1 text-dark me-3" />
+                <i className="fa fa-plus fs-1 text-danger me-3" />
                 MediMartGo
               </h1>
             </a>
             <p className="mt-3">
-              Lorem diam sit erat dolor elitr et, diam lorem justo labore amet
-              clita labore stet eos magna sit. Elitr dolor eirmod duo tempor
-              lorem, elitr clita ipsum sea. Nonumy rebum et takimata ea takimata
-              amet gubergren, erat rebum magna lorem stet eos. Diam amet et kasd
-              eos duo dolore no.
+              MedimartGo is a reliable online medicine shopping platform that delivers genuine healthcare products directly to your doorstep.
+              Your trusted digital pharmacy for authentic medicines, wellness products, and timely delivery.
             </p>
           </div>
         </div>

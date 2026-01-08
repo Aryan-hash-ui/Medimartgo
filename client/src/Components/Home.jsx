@@ -120,7 +120,7 @@ export default function Home() {
                         </div>
                       </div>
                       <Link to={`/singleproduct/${item._id}`}><div className="bg-dark border-inner text-center p-4">
-                        <h4 className="text-uppercase text-primary">{item.name}</h4>
+                        <h4 className="text-uppercase text-light">{item.name}</h4>
                         <small><del className='text-danger'>&#8377; {item.baseprice}</del>  &#8377; {item.finalprice}</small>
                       </div>
                       </Link>
@@ -707,11 +707,10 @@ export default function Home() {
           <div className="container">
             <div className="row g-5">
               <div className="col-lg-4 col-md-6">
-                <div className="bg-success border-inner text-center text-white p-5">
-                  <h4 className="text-uppercase mb-3">Surgicals</h4>
+                <div className="bg-success border-inner text-center text-light p-5">
+                  <h4 className="text-uppercase mb-3 text-light">Surgicals</h4>
                   <p>
-                    Ipsum ipsum clita erat amet dolor sit justo sea eirmod diam stet
-                    sit justo amet tempor amet kasd lorem dolor ipsum
+                    High-quality surgical items including gloves, masks, syringes, dressings, and medical tools designed for safety, hygiene, reliability, and professional healthcare use.
                   </p>
                   <a className="text-uppercase text-dark" href="">
                     Read More <i className="bi bi-arrow-right" />
@@ -719,11 +718,10 @@ export default function Home() {
                 </div>
               </div>
               <div className="col-lg-4 col-md-6">
-                <div className="bg-success border-inner text-center text-white p-5">
-                  <h4 className="text-uppercase mb-3">Inhalers</h4>
+                <div className="bg-success border-inner text-center text-light p-5">
+                  <h4 className="text-uppercase mb-3 text-light">Inhalers</h4>
                   <p>
-                    Ipsum ipsum clita erat amet dolor sit justo sea eirmod diam stet
-                    sit justo amet tempor amet kasd lorem dolor ipsum
+                    Effective inhalers for asthma and respiratory care, providing fast relief, controlled dosage, easy usage, and trusted support for better breathing daily.
                   </p>
                   <a className="text-uppercase text-dark" href="">
                     Read More <i className="bi bi-arrow-right" />
@@ -731,11 +729,10 @@ export default function Home() {
                 </div>
               </div>
               <div className="col-lg-4 col-md-6">
-                <div className="bg-success border-inner text-center text-white p-5">
-                  <h4 className="text-uppercase mb-3">Supliments</h4>
+                <div className="bg-success border-inner text-center text-light p-5">
+                  <h4 className="text-uppercase mb-3 text-light">Supliments</h4>
                   <p>
-                    Ipsum ipsum clita erat amet dolor sit justo sea eirmod diam stet
-                    sit justo amet tempor amet kasd lorem dolor ipsum
+                   Premium health supplements containing essential vitamins, minerals, and nutrients to support immunity, energy, bone strength, and overall wellness for daily health.
                   </p>
                   <a className="text-uppercase text-dark" href="">
                     Read More <i className="bi bi-arrow-right" />
