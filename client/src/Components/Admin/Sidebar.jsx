@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { GrContact } from "react-icons/gr";
 
 export default function Sidebar() {
   const [expanded, setExpanded] = useState(false);
@@ -94,7 +95,7 @@ const baseStyle = {
           </li>
            <li className="py-3">
             <Link className="text-white d-flex align-items-center gap-3 text-decoration-none" to="/admin/contactus">
-              <i className="fa fa-box fs-4"></i>
+              <GrContact />
               {expanded && <span>Contact Us</span>}
             </Link>
           </li>
@@ -108,6 +109,12 @@ const baseStyle = {
             <Link className="text-white d-flex align-items-center gap-3 text-decoration-none" to="/admin/checkout">
               <i className="fa fa-box fs-4"></i>
               {expanded && <span> All Orders</span>}
+            </Link>
+          </li>
+           <li className="py-3">
+            <Link className="text-white d-flex align-items-center gap-3 text-decoration-none" to="/admin/newsletter">
+              <i className="fa fa-box fs-4"></i>
+              {expanded && <span> Newsletter</span>}
             </Link>
           </li>
 

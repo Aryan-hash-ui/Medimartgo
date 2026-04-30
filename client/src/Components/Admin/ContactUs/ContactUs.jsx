@@ -60,11 +60,11 @@ export default function ContactUs() {
                                                 <td>{item.subject.slice(0,100)+"..."}</td>
                                                 <td>{new Date(item.date).toLocaleDateString()}</td>
                                                 <td>{item.active?"Active":"InActive"}</td>
-                                                <td><Link to={`/admin/contactus/show/${item.id}`}><i className='fa fa-eye text-success'></i></Link></td>
+                                                <td><Link to={`/admin/contactus/show/${item._id}`}><i className='fa fa-eye text-success'></i></Link></td>
                                                 <td>
                                                     {
                                                         item.active!==false?
-                                                        <button className='btn' onClick={()=>deleteItem(item.id)}><i className='fa fa-trash text-danger'></i></button>:
+                                                        <button className='btn' onClick={()=>deleteItem(item._id)}><i className='fa fa-trash text-danger'></i></button>:
                                                         ""
                                                     }
                                                 </td>

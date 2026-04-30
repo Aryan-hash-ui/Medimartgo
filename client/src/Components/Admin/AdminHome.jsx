@@ -37,7 +37,7 @@ export default function AdminHome() {
             <div className="flex-grow-1 p-4" style={{ marginLeft: "80px", }}>
                 <div className="row g-4"   >
 
-                    <div className="col-md-4"  >
+                    <div className="col-md-4 rounded"  >
                         {
                             user.pic ?
                                 <img src={user.pic} className="img-fluid rounded shadow" alt="" /> :

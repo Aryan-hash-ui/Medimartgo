@@ -88,10 +88,7 @@ function postData(e) {
                         </div>
                         <div className="col-md-6">
                             <div className="wow fadeInUp" data-wow-delay="0.2s">
-                                {
-                                    show ?
-                                        <p>Thanks to Contact Us!!! We Will Contact You Soon</p> : ""
-                                }
+                               
                                 <form onSubmit={postData}>
                                     <div className="row g-3">
                                         <div className="col-12">
@@ -127,6 +124,10 @@ function postData(e) {
                                         <div className="col-12">
                                             <button className="btn btn-primary w-100 py-3" type="submit">Send Message</button>
                                         </div>
+                                         {
+                                    show ?
+                                        <p>Thanks to Contact Us!!! We Will Contact You Soon</p> : ""
+                                }
                                     </div>
                                 </form>
                             </div>

@@ -73,9 +73,9 @@ export default function App() {
           <Route path="/admin" element={localStorage.getItem("login")?localStorage.getItem("role")==='Admin'?<AdminHome />:<Profile/>:<Login/>} />
           <Route path="/admin/newsletter" element={localStorage.getItem("login")?localStorage.getItem("role")==='Admin'?<Newsletter />:<Profile/>:<Login/>} />
           <Route path="/admin/contactus" element={localStorage.getItem("login")?localStorage.getItem("role")==='Admin'?<ContactUs />:<Profile/>:<Login/>} />
-          <Route path="/admin/contactus/show/:_id" element={localStorage.getItem("login")?localStorage.getItem("role")==='Admin'?<ShowContact />:<Profile/>:<Login/>} />
+          <Route path="/admin/contactus/show/:id" element={localStorage.getItem("login")?localStorage.getItem("role")==='Admin'?<ShowContact />:<Profile/>:<Login/>} />
           <Route path="/admin/checkout" element={localStorage.getItem("login")?localStorage.getItem("role")==='Admin'?<AdminCheckout />:<Profile/>:<Login/>} />
-          <Route path="/admin/checkout/show/:_id" element={localStorage.getItem("login")?localStorage.getItem("role")==='Admin'?<ShowCheckout />:<Profile/>:<Login/>} />
+          <Route path="/admin/checkout/show/:id" element={localStorage.getItem("login")?localStorage.getItem("role")==='Admin'?<ShowCheckout />:<Profile/>:<Login/>} />
 
 
 

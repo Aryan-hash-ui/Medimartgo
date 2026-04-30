@@ -1,5 +1,5 @@
 # Dependency directories
-node_modules/
+node_modules
 
 # Build output
 dist/
@@ -23,9 +23,3 @@ pnpm-debug.log*
 # OS-specific
 .DS_Store
 Thumbs.db
-
-# Optional: if using ESLint cache
-.eslintcache
-
-# Optional: if using TypeScript
-*.tsbuildinfo

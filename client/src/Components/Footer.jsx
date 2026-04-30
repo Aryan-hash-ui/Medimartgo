@@ -94,7 +94,7 @@ export default function Footer() {
             <div className="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
               <h4 className="text-primary text-uppercase mb-4">Newsletter</h4>
               <p>Amet justo diam dolor rebum lorem sit stet sea justo kasd</p>
-              <form action="">
+              <form action="/post">
                 <div className="input-group">
                   <input
                     type="text"
