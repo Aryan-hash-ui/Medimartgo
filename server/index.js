@@ -9,6 +9,11 @@ var path=require("path")
 const router =require("./routes/router")
 
 
+app.use(cors({
+  origin: "https://medimartgo.vercel.app/",
+  credentials: true
+}));
+
 app.use(express.json())
 app.use(express.static(path.join(__dirname, 'build')));
 app.use("/api",router)
