@@ -1,4 +1,4 @@
-const testimonial = require("../models/testimonial")
+const testimonial = require("../models/Testimonial")
 const fs = require("fs")
 async function getRecord(req, res) {
     try {
