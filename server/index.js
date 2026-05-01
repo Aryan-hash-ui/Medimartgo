@@ -9,12 +9,21 @@ var path=require("path")
 const router =require("./routes/router")
 
 
-app.use(cors({
-  origin: "https://medimartgo.vercel.app",
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
-}));
+const corsOptions = {
+  origin: [
+    'https://medimartgo.vercel.app',     // ← Your Vercel frontend
+    'http://localhost:3000',             // ← For local development
+    'http://127.0.0.1:3000'
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,                     // Important if you use tokens
+};
 
+app.use(cors(corsOptions));
+
+// Handle preflight requests (OPTIONS)
+app.options('*', cors(corsOptions));
 app.use(express.json())
 app.use(express.static(path.join(__dirname, 'build')));
 app.use("/api",router)
