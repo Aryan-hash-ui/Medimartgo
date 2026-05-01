@@ -22,4 +22,4 @@ app.use("/public",express.static("public"))
 app.use('*', express.static(path.join(__dirname, 'build')))
 require("./dbConnect")
 let port = process.env.PORT || 8000
-app.listen(port,()=>console.log(`Server is Running at http://localhost:${port}`))
+app.listen(port,()=>console.log(`Server is Running at https://medimartgo.onrender.com`))
