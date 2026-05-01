@@ -19,7 +19,7 @@ export async function getRecord(){
     return await response.json()
 }
 export async function updateRecord(payload){
-    let response = await fetch("https://medimartgo.onrender.com/api/product"+payload.get("_id"),{
+    let response = await fetch(`https://medimartgo.onrender.com/api/product/${payload.get("_id")}`,{
         method:"put",
         headers:{
             "Authorization": localStorage.getItem("token")
@@ -30,7 +30,7 @@ export async function updateRecord(payload){
     return await response.json()
 }
 export async function deleteRecord(payload){
-    let response = await fetch("https://medimartgo.onrender.com/api/product"+payload._id,{
+    let response = await fetch(`https://medimartgo.onrender.com/api/product/${payload._id}`,{
         method:"delete",
         headers:{
             "content-type":"application/json",
