@@ -10,7 +10,8 @@ const router =require("./routes/router")
 
 
 app.use(cors({
-  origin: "https://medimartgo.vercel.app/",
+  origin: "https://medimartgo.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
 
