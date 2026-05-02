@@ -32,27 +32,23 @@ const handleResponse = async (res) => {
 // ====================== CRUD Operations ======================
 
 // ✅ GET ALL PRODUCTS
+// ✅ GET PRODUCTS - Updated for your API response structure
 export async function getRecord() {
   if (!BASE_URL) {
-    throw new Error("API base URL is not configured. Please check environment variables.");
+    throw new Error("API base URL is not configured.");
   }
 
-  try {
-    const res = await fetch(`${BASE_URL}/product`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      // Prevent aggressive caching in production
-      cache: "no-store",
-      next: { revalidate: 0 }, // Only works in Next.js, safe to keep
-    });
+  const res = await fetch(`${BASE_URL}/product`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 
-    return await handleResponse(res);
-  } catch (error) {
-    console.error("Failed to fetch products:", error);
-    throw error; // Let the component handle the error
-  }
+  const result = await handleResponse(res);
+
+  // IMPORTANT: Extract the actual products array
+  return result.data || result;   // This handles both "data.data" and direct array cases
 }
 
 // ✅ ADD NEW PRODUCT
