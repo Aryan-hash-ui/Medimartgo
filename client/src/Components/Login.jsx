@@ -5,27 +5,28 @@ const BASE_URL = process.env.REACT_APP_API_URL;
 
 export default function Login() {
   const [data, setData] = useState({ username: "", password: "" });
-  const [show, setShow] = useState(false);
+  const [showError, setShowError] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const getInputData = (e) => {
     const { name, value } = e.target;
-    setData((old) => ({ ...old, [name]: value }));
+    setData((prev) => ({ ...prev, [name]: value }));
   };
 
   const postData = async (e) => {
     e.preventDefault();
+    setShowError(false);
 
     if (!BASE_URL) {
-      alert("❌ REACT_APP_API_URL is missing in Vercel Environment Variables!");
+      alert("❌ REACT_APP_API_URL is not set in Vercel Environment Variables");
       return;
     }
 
     try {
       const response = await fetch(`${BASE_URL}/api/user/login`, {
         method: "POST",
-        headers: { "content-type": "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
       });
 
@@ -39,13 +40,17 @@ export default function Login() {
         localStorage.setItem("role", result.data.role);
         localStorage.setItem("token", result.token);
 
-        navigate(result.data.role === "Buyer" ? "/profile" : "/adminhome");
+        if (result.data.role === "Buyer") {
+          navigate("/profile");
+        } else {
+          navigate("/adminhome");
+        }
       } else {
-        setShow(true);
+        setShowError(true);
       }
     } catch (err) {
-      console.error(err);
-      setShow(true);
+      console.error("Login failed:", err);
+      setShowError(true);
     }
   };
 
@@ -56,12 +61,19 @@ export default function Login() {
           <span className='text-warning fs-3'>Login</span> to Your Account
         </h5>
 
-        {show && <p className='text-danger text-center p-2'>Invalid Username or Password</p>}
+        {showError && <p className='text-danger text-center p-2'>Invalid Username or Password</p>}
 
         <form onSubmit={postData}>
           <div className="mb-3">
             <label>Username</label>
-            <input type="text" name="username" onChange={getInputData} placeholder='User Name' className='form-control' required />
+            <input
+              type="text"
+              name="username"
+              onChange={getInputData}
+              placeholder='Enter Username'
+              className='form-control'
+              required
+            />
           </div>
 
           <div className="mb-3">
@@ -71,11 +83,15 @@ export default function Login() {
                 type={showPassword ? "text" : "password"}
                 name="password"
                 onChange={getInputData}
-                placeholder="Password"
+                placeholder="Enter Password"
                 className="form-control"
                 required
               />
-              <span className="input-group-text" onClick={() => setShowPassword(!showPassword)} style={{ cursor: "pointer" }}>
+              <span 
+                className="input-group-text" 
+                onClick={() => setShowPassword(!showPassword)}
+                style={{ cursor: "pointer" }}
+              >
                 {showPassword ? "🙈" : "👁️"}
               </span>
             </div>
