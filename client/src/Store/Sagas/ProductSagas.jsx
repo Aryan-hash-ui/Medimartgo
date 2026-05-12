@@ -4,19 +4,21 @@ import { addRecord, deleteRecord, getRecord, updateRecord } from "./Services/Pro
 
 function* add(action) {                                     //executer
     let response = yield addRecord(action.payload)
-    yield put({ type: ADD_PRODUCT_RED, payload:response.data })
+    yield put({ type: ADD_PRODUCT_RED, payload:response })
 }
-
-function* get() {                                               //executer
+function* get() {
     let response = yield getRecord()
-    yield put({ type: GET_PRODUCT_RED, payload: response.data })
+    yield put({
+        type: GET_PRODUCT_RED,
+        payload: response
+    })
 }
 
 function* update(action) {                                      //executer
    
     let response = yield updateRecord(action.payload)
-    console.log("Saga",response);
-    yield put({ type: UPDATE_PRODUCT_RED, payload: response.data })
+    console.log("UPDATE RESPONSE:", response)
+    yield put({ type: UPDATE_PRODUCT_RED, payload: response })
 }
 
 function* deleteItem(action) {                                  //executer

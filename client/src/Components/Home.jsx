@@ -9,17 +9,22 @@ import { Link } from 'react-router-dom'
 export default function Home() {
   let dispatch = useDispatch()
   let [data, setData] = useState([])
-  let ProductStateData = useSelector((state) => state.ProductStateData)
 
-  function getAPIData() {
-    dispatch(getProduct())
-    if (ProductStateData.length) {
-      setData(ProductStateData.slice(0, 15))
-    }
+const ProductStateData = useSelector(
+  (state) => state.ProductStateData
+)
+
+useEffect(() => {
+  dispatch(getProduct())
+}, [])
+
+useEffect(() => {
+  if (ProductStateData?.length) {
+    setData(ProductStateData.slice(0, 15))
   }
-  useEffect(() => {
-    getAPIData()
-  }, [ProductStateData.length])
+}, [ProductStateData])
+console.log("Redux ProductStateData:", ProductStateData)
+console.log("Local data:", data)
   return (
     <>
       <>
@@ -110,10 +115,10 @@ export default function Home() {
      
                     <div className="team-item cards" style={{"box-shadow":"rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px"}}>
                       <div className="position-relative overflow-hidden">
-                        <img className="img-fluid  p-2 w-100" src={`/${item.pic1}`}  alt=""  style={{"width":"100%","height":"200px"}} />
+                        <img className="img-fluid  p-2 w-100" src={`https://medimartgo.onrender.com/${item.pic1}`}  alt=""  style={{"width":"100%","height":"200px"}} />
                         <div className="team-overlay w-100 h-100 position-absolute top-50 start-50 translate-middle d-flex align-items-center justify-content-center">
                           <div className="d-flex align-items-center justify-content-start">
-                          <img className="img-fluid team-overlay position-absolute start-0 top-0 w-100 h-100" ssrc={`https://medimartgo.onrender.com/${item.pic1}`}  alt="*"  style={{"width":"100%","height":"200px"}}/>
+                          <img className="img-fluid team-overlay position-absolute start-0 top-0 w-100 h-100" src={`https://medimartgo.onrender.com/${item.pic1}`}  alt="*"  style={{"width":"100%","height":"200px"}}/>
                            
                            
                           </div>

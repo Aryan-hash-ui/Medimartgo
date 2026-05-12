@@ -1,6 +1,6 @@
 // ProductService.js
-const BASE_URL = "https://medimartgo.onrender.com"
-
+const BASE_URL = process.env.REACT_APP_API_URL
+console.log("BASE_URL:", BASE_URL);
 if (!BASE_URL) {
   console.warn("⚠️ REACT_APP_API_URL is not defined in environment variables!");
 }
@@ -37,7 +37,6 @@ export async function getRecord() {
   if (!BASE_URL) {
     throw new Error("API base URL is not configured.");
   }
-
   const res = await fetch(`${BASE_URL}/api/product`, {
     method: "GET",
     headers: {
