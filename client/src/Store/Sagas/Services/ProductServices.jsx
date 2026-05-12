@@ -38,7 +38,7 @@ export async function getRecord() {
     throw new Error("API base URL is not configured.");
   }
 
-  const res = await fetch(`${BASE_URL}/product`, {
+  const res = await fetch(`${BASE_URL}/api/product`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -57,7 +57,7 @@ export async function addRecord(payload) {
     throw new Error("API base URL is not configured.");
   }
 
-  const res = await fetch(`${BASE_URL}/product`, {
+  const res = await fetch(`${BASE_URL}/api/product`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${getToken()}`,
@@ -80,7 +80,7 @@ export async function updateRecord(payload) {
     throw new Error("Product ID is required for update.");
   }
 
-  const res = await fetch(`${BASE_URL}/product/${id}`, {
+  const res = await fetch(`${BASE_URL}/api/product/${id}`, {
     method: "PUT",
     headers: {
       Authorization: `Bearer ${getToken()}`,
@@ -101,7 +101,7 @@ export async function deleteRecord(payload) {
     throw new Error("Product ID is required for deletion.");
   }
 
-  const res = await fetch(`${BASE_URL}/product/${payload._id}`, {
+  const res = await fetch(`${BASE_URL}/api/product/${payload._id}`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${getToken()}`,

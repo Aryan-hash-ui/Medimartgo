@@ -7,7 +7,7 @@ var path=require("path")
  app.use(cors())
  
 const router =require("./routes/router")
-
+const PORT = process.env.PORT || 8000
 
 const corsOptions = {
   origin: [
@@ -31,5 +31,6 @@ app.set(express.static("./public"))
 app.use("/public",express.static("public"))
 app.use('*', express.static(path.join(__dirname, 'build')))
 require("./dbConnect")
-let port = process.env.PORT || 8000
-app.listen(port,()=>console.log(`Server is Running at https://medimartgo.onrender.com`))
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`)
+})
