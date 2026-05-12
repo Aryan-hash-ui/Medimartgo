@@ -11,7 +11,9 @@ const PORT = process.env.PORT || 8000
 
 const corsOptions = {
   origin: [
-    'https://medimartgo.vercel.app'
+    "https://medimartgo.vercel.app",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000"
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
