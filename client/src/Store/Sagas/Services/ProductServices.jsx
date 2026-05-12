@@ -1,5 +1,5 @@
 // ProductService.js
-const BASE_URL = process.env.REACT_APP_API_URL;
+const BASE_URL = "https://medimartgo.onrender.com"
 
 if (!BASE_URL) {
   console.warn("⚠️ REACT_APP_API_URL is not defined in environment variables!");
