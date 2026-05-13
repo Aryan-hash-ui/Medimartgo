@@ -8,6 +8,11 @@ function* add(action) {                                     //executer
 }
 function* get() {
     let response = yield getRecord()
+
+    console.log("PRODUCTION SAGA RESPONSE:", response)
+    console.log("TYPE:", typeof response)
+    console.log("IS ARRAY:", Array.isArray(response))
+
     yield put({
         type: GET_PRODUCT_RED,
         payload: response
