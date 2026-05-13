@@ -10,26 +10,30 @@ export default function Home() {
   let dispatch = useDispatch()
   let [data, setData] = useState([])
 
-const ProductStateData = useSelector(
-  (state) => state.ProductStateData
-)
+// const ProductStateData = useSelector(
+//   (state) => state.ProductStateData
+// )
 
 useEffect(() => {
-  dispatch(getProduct())
+  fetch(`${process.env.REACT_APP_API_URL}/api/product`)
+    .then((res) => res.json())
+    .then((result) => {
+      setData(result.data || result)
+    })
+    .catch((err) => console.log(err))
 }, [])
 
-useEffect(() => {
-  if (ProductStateData?.length) {
-    setData(ProductStateData.slice(0, 15))
-  }
-}, [ProductStateData])
-console.log("Redux ProductStateData:", ProductStateData)
-console.log("Local data:", data)
+// useEffect(() => {
+//   if (ProductStateData?.length) {
+//     setData(ProductStateData.slice(0, 15))
+//   }
+// }, [ProductStateData])
+// console.log("Redux ProductStateData:", ProductStateData)
+// console.log("Local data:", data)
   return (
     <>
       <>
         {/* Hero Start */}
-        <h6>BUILD TEST 1235</h6>
         <div className="container-fluid bg-success py-5 mb-5 hero-header">
           <div className="container py-5">
             <div className="row justify-content-start">
