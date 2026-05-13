@@ -89,9 +89,11 @@ export default function Shop() {
         dispatch(getBrand())
         if (BrandStateData.length)
             setBrand(BrandStateData)
-        dispatch(getProduct())
-        if (ProductStateData.length)
-            setProduct(ProductStateData)
+       fetch("https://medimartgo.onrender.com/api/product")
+  .then(res => res.json())
+  .then(result => {
+      setProduct(result.data || result)
+  })
 
     }
     useEffect(() => {
@@ -189,9 +191,9 @@ export default function Shop() {
 
                                         <div className="team-item" >
                                             <div className="position-relative overflow-hidden">
-                                                <img className="img-fluid" src={`/${item.pic1}`} alt="" style={{ "width": "100%", "height": "200px" }} />
+                                                <img className="img-fluid" src={`https://medimartgo.onrender.com/${item.pic1}`} alt="" style={{ "width": "100%", "height": "200px" }} />
                                                 <div className="team-overlay position-absolute start-0 top-0 w-100 h-100 " >
-                                                    <img className="img-fluid team-overlay position-absolute start-0 top-0 w-100 h-100" src={`/${item.pic2}`} alt="" style={{ "width": "100%", "height": "200px" }} />
+                                                    <img className="img-fluid team-overlay position-absolute start-0 top-0 w-100 h-100" src={`https://medimartgo.onrender.com/${item.pic2}`} alt="" style={{ "width": "100%", "height": "200px" }} />
 
                                                     {/* <Link className="btn btn-square mx-1 text-light position-absolute bg-primary w-100" to={`/singleproduct/${item._id}`}><i className="fa fa-shopping-cart"></i>&emsp; Add to Cart</Link> */}
 
