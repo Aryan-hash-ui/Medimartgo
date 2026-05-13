@@ -8,7 +8,7 @@ import Contact from './Contact'
 import Shop from './Shop'
 import Login from './Login'
 import Signup from './Signup'
-
+console.log("NEW BUILD DEPLOYED")
 
 import SingleProduct from './SingleProduct'
 import Error from './Error'
