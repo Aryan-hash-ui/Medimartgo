@@ -1,4 +1,5 @@
 import React from 'react'
+import { Collapse } from 'bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 export default function Navbar() {
 
@@ -7,7 +8,13 @@ export default function Navbar() {
     localStorage.clear()
     navigate("/login")
   }
-
+  const closeNavbar = () => {
+    const nav = document.getElementById("navbarSupportedContent")
+    if (nav.classList.contains("show")) {
+      const bsCollapse = new Collapse(nav, { toggle: false })
+      bsCollapse.hide()
+    }
+  }
 
 
   return (
@@ -46,7 +53,7 @@ export default function Navbar() {
 
       {/* Navbar Start */}
       <nav className="navbar navbar-expand-lg bg-primary text-light navbar-dark shadow-sm px-3 px-lg-0" style={{ zIndex: 1050 }}>
-        <Link to="/" className="navbar-brand d-block d-lg-none">
+        <Link to="/" className="navbar-brand d-block d-lg-none ">
           <h1 className="m-0 text-uppercase text-light">
             <i className="fa fa-plus fs-1  me-3" />
             MediMartGo
@@ -63,7 +70,7 @@ export default function Navbar() {
         <div className="collapse navbar-collapse text-primary" id="navbarCollapse">
           <div className="col-lg-4 text-center text-light  py-0 mx-0">
             <div className="d-inline-flex align-items-center justify-content-center">
-              <Link to="/" className="navbar-brand">
+              <Link to="/" className="navbar-brand" onClick={closeNavbar}>
                 <h1 className="m-0 text-uppercase text-dark">
                   <i className="fa fa-plus fs-1 text-danger me-3" />
                   MediMartGo
@@ -72,30 +79,29 @@ export default function Navbar() {
             </div>
           </div>
           <div className="navbar-nav ms-auto  text-light mx-lg-auto py-0">
-            <Link to="/" className="nav-item text-light nav-link active">Home</Link>
-            <Link to="/about" className="nav-item text-light nav-link">About Us</Link>
-            <Link to="/shop" className="nav-item text-light nav-link">Shop</Link>
+            <Link to="/" className="nav-item text-light nav-link active" onClick={closeNavbar}>Home</Link>
+            <Link to="/about" className="nav-item text-light nav-link" onClick={closeNavbar}>About Us</Link>
+            <Link to="/shop" className="nav-item text-light nav-link" onClick={closeNavbar}>Shop</Link>
             {
               localStorage.getItem('role') === 'Admin' ?
-                <Link to="/admin" className="nav-item  text-light nav-link">Admin</Link> : ""
+                <Link to="/admin" className="nav-item  text-light nav-link" onClick={closeNavbar}>Admin</Link> : ""
 
             }
-            <Link to="/contact" className="nav-item  text-light nav-link">Contact Us</Link>
+            <Link to="/contact" className="nav-item  text-light nav-link" onClick={closeNavbar}>Contact Us</Link>
           </div>
           {/* <Link to="/cart" className="nav-item nav-link">
-            <i className='fa fa-bold fa-shopping-cart'></i>
+            <i className='fa fa-bold fa-shopping-cart text-light'></i>
           </Link> */}
 
           {/* localStorage and sessionStorage are almost identical and have the same API. The difference is that with sessionStorage , the data is persisted only until the window or tab is closed. With localStorage , the data is persisted until the user manually clears the browser cache or until your web app clears the data. */}
           {
             localStorage.getItem("login") ?
-              <div className="nav-item dropdown cursor-pointer py-1 mx-2 bg-success
-                            ">
-                <a to="#" className="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown">{localStorage.getItem("name")}</a>
+             <div className="nav-item dropdown cursor-pointer py-1 mx-2 bg-success">
+                <a href="#" className="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown">{localStorage.getItem("name")}</a>
                 <div className="dropdown-menu fade-up m-0">
                   {
                     localStorage.getItem("role") === "Admin" ?
-                      <Link to="/admin" className="dropdown-item">Profile</Link> :
+                      <Link to="/admin" className="dropdown-item" >Profile</Link> :
                       <Link to="/profile" className="dropdown-item">Profile</Link>
                   }
                   {
@@ -109,7 +115,7 @@ export default function Navbar() {
                 </div>
               </div>
               :
-              <Link to="/login" className="btn text-light bg-success p-3 mx-3">Log In</Link>
+              <Link to="/login" className="btn text-light bg-success p-3 mx-3" >Log In</Link>
           }
 
         </div>

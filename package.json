@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "bootstrap": "^5.3.8",
     "nodemailer": "^7.0.12",
     "react-countup": "^4.3.3",
     "react-data-table-component": "^7.6.2",

@@ -13,13 +13,10 @@ export default function Testimonial() {
   fetch("https://medimartgo.onrender.com/api/testimonial")
     .then((res) => res.json())
     .then((result) => {
-      console.log("TESTIMONIAL:", result)
       setData(result.data || result)
     })
     .catch((err) => console.log(err))
 }, [])
-
-
 
   return (
    <>
@@ -33,13 +30,13 @@ export default function Testimonial() {
             <div className=" position-relative">
             <OwlCarousel className='owl-theme' loop margin={10} nav>
                {
-                data.map((item,index)=>{
+                data.map((result,index)=>{
                     return  <div className="testimonial-item text-center" key={index}>
-                    <img className="bg-light rounded-circle p-2 mx-auto mb-3" src={`https://medimartgo.onrender.com/${item.pic}`} style={{width: '80px', height: '80px'}}/>
-                    <h5 className="mb-0">{item.name}</h5>
-                    <p>{item.profile}</p>
+                    <img className="bg-light rounded-circle p-2 mx-auto mb-3" src={`https://medimartgo.onrender.com/${result.pic}`} style={{width: '80px', height: '80px'}}/>
+                    <h5 className="mb-0">{result.name}</h5>
+                    <p>{result.profile}</p>
                     <div className="testimonial-text bg-light text-center p-4">
-                    <p className="mb-0" style={{}}>{item.message}</p>
+                    <p className="mb-0" style={{}}>{result.message}</p>
                     </div>
                 </div>
 

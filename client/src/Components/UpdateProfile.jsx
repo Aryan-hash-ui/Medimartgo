@@ -5,6 +5,7 @@ export default function UpdateProfile() {
     let [data, setData] = useState({
         name: "",
          phone: "",
+         email: "",
         address: "",
         pin: "",
         city: "",
@@ -44,7 +45,7 @@ export default function UpdateProfile() {
         formData.append("state",data.state)
         formData.append("pic",data.pic)
 
-        var response = await fetch("/api/user/" + localStorage.getItem("userid"), {
+        var response = await fetch(`${process.env.REACT_APP_API_URL}/api/user/` + localStorage.getItem("userid"), {
             method: "put",
             headers: {
                 
@@ -53,13 +54,13 @@ export default function UpdateProfile() {
             body: formData
         })
         response = await response.json()
-        if (data.role === "Admin")
+       if (localStorage.getItem("role") === "Admin")
             navigate("/admin")
         else
             navigate("/profile")
     }
     async function getAPIData() {
-        let response = await fetch("/api/user/" + localStorage.getItem("userid"), {
+        let response = await fetch(`${process.env.REACT_APP_API_URL}/api/user/` + localStorage.getItem("userid"), {
             method: "get",
             headers: {
                 "content-type": "application/json",

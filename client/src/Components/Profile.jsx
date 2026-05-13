@@ -16,7 +16,7 @@ export default function Profile() {
         getAPIData()
     }
     async function getAPIData() {
-        let response = await fetch("/api/user/" + localStorage.getItem("userid"), {
+        let response = await fetch(`${process.env.REACT_APP_API_URL}/api/user/` + localStorage.getItem("userid"), {
             method: "get",
             headers: {
                 "content-type": "application/json",

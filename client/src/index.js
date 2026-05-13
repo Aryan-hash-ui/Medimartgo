@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './Components/App';
 import { Provider } from 'react-redux';
 import Store from './Store/Store';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
