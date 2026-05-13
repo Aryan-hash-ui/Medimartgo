@@ -1,4 +1,3 @@
-console.log("NEW BUILD DEPLOYED")
 
 import React from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
