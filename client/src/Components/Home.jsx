@@ -15,7 +15,12 @@ const ProductStateData = useSelector(
 )
 
 useEffect(() => {
-  dispatch(getProduct())
+  fetch("https://medimartgo.onrender.com/api/product")
+    .then(res => res.json())
+    .then(result => {
+      console.log("DIRECT FETCH:", result)
+      setData(result.data || result)
+    })
 }, [])
 
 useEffect(() => {
