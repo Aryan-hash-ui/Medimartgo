@@ -34,7 +34,9 @@ const EyeOpenIcon = () => (
 
     async function postData(e) {
         e.preventDefault();
-        let response = await fetch("/api/user/login", {
+       let response = await fetch(
+ `${process.env.REACT_APP_API_URL}/api/user/login`,
+{
             method: "POST",
             headers: {
                 "content-type": "application/json"

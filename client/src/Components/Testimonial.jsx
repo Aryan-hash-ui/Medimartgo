@@ -9,16 +9,15 @@ export default function Testimonial() {
     let dispatch = useDispatch()
     let [data,setData]=useState([])
     let TestimonialStateData = useSelector((state) => state.TestimonialStateData)
-    function getAPIData() {
-        dispatch(getTestimonial())
-        if(TestimonialStateData.length)
-        {
-            setData(TestimonialStateData)
-        }
-    }
     useEffect(() => {
-        getAPIData()
-    }, [TestimonialStateData.length])
+  fetch("https://medimartgo.onrender.com/api/testimonial")
+    .then((res) => res.json())
+    .then((result) => {
+      console.log("TESTIMONIAL:", result)
+      setData(result.data || result)
+    })
+    .catch((err) => console.log(err))
+}, [])
 
 
 
@@ -36,7 +35,7 @@ export default function Testimonial() {
                {
                 data.map((item,index)=>{
                     return  <div className="testimonial-item text-center" key={index}>
-                    <img className="bg-light rounded-circle p-2 mx-auto mb-3" src={`/${item.pic}`} style={{width: '80px', height: '80px'}}/>
+                    <img className="bg-light rounded-circle p-2 mx-auto mb-3" src={`https://medimartgo.onrender.com/${item.pic}`} style={{width: '80px', height: '80px'}}/>
                     <h5 className="mb-0">{item.name}</h5>
                     <p>{item.profile}</p>
                     <div className="testimonial-text bg-light text-center p-4">

@@ -75,23 +75,33 @@ navigate("/profile")
 }}
 
 
+function getAPIData() {
+  fetch("https://medimartgo.onrender.com/api/product")
+    .then((res) => res.json())
+    .then((result) => {
+      const products = result.data || result
 
-  function getAPIData() {
-    dispatch(getProduct())
-    if (ProductStateData.length) {
-      let item = ProductStateData.find((x) => x._id ===_id)
+      const item = products.find((x) => x._id === _id)
+
       if (item) {
         setData(item)
-        setRelatedProducts(ProductStateData.filter((x) => x.maincategory === item.maincategory && x.subcategory === item.subcategory && x.brand === item.brand))
+
+        setRelatedProducts(
+          products.filter(
+            (x) =>
+              x.maincategory === item.maincategory &&
+              x.subcategory === item.subcategory &&
+              x.brand === item.brand
+          )
+        )
+      } else {
+        navigate("/shop")
       }
-      else {
-        navigate('/shop')
-      }
-    }
-  }
+    })
+}
   useEffect(() => {
-    getAPIData()
-  }, [ProductStateData.length, _id])
+  getAPIData()
+}, [_id])
   return (
     <>
       <div className='container-fluid'>
@@ -107,16 +117,16 @@ navigate("/profile")
               </div>
               <div className="carousel-inner">
                 <div className="carousel-item active">
-                  <img src={`/${data.pic1}`} height="500px" className="d-block w-100" alt="..." />
+                  <img src={`https://medimartgo.onrender.com/${data.pic1}`} height="500px" className="d-block w-100" alt="..." />
                 </div>
                 <div className="carousel-item">
-                  <img src={`/${data.pic2}`} height="500px" className="d-block w-100" alt="..." />
+                  <img src={`https://medimartgo.onrender.com/${data.pic2}`} height="500px" className="d-block w-100" alt="..." />
                 </div>
                 <div className="carousel-item">
-                  <img src={`/${data.pic3}`} height="500px" className="d-block w-100" alt="..." />
+                  <img src={`https://medimartgo.onrender.com/${data.pic3}`} height="500px" className="d-block w-100" alt="..." />
                 </div>
                 <div className="carousel-item">
-                  <img src={`/${data.pic4}`} height="500px" className="d-block w-100" alt="..." />
+                  <img src={`https://medimartgo.onrender.com/${data.pic4}`} height="500px" className="d-block w-100" alt="..." />
                 </div>
               </div>
               <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

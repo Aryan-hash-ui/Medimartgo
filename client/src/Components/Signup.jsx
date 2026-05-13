@@ -56,7 +56,7 @@ export default function Signup() {
         state: "",
         pic: ""
       };
-      let response = await fetch("/api/user", {
+      let response = await fetch(`${process.env.REACT_APP_API_URL}/api/user`, {
         method: "post",
         headers: {
           "content-type": "application/json"
